@@ -23,7 +23,7 @@ for i in range(N):
             tabcompteur[i]+=1
             
 F=tabcompteur/N
-plt.plot(tabtrie,F,label='F_exp')
+plt.plot(t1,F,label='F_exp')
 
 f=np.zeros(N)
 
