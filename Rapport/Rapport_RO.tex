@@ -68,8 +68,8 @@
 	\begin{minipage}{0.4\textwidth}
 		\begin{flushright} \large
 			\emph{Enseignant:} \\
-			Julien \textsc{Saunier} \\
-			{\small\href{mailto:julien.saunier@insa-rouen.fr}								{julien.saunier@insa-rouen.fr}}
+			Ioana \textsc{Ciotir} \\
+			{\small\href{mailto:ioana.ciotir@insa-rouen.fr}								{ioana.ciotir@insa-rouen.fr}}
 		\end{flushright}
 	\end{minipage}
 	\vspace*{\stretch{1}}
@@ -175,5 +175,8 @@ On retombe bien sur la même loi exponentielle que $G(U)$. \\
 
 Pour conclure si $U\sim\mathbb{U}([0,1])$ on aura $G(1-U) \sim G(U)\sim \varepsilon(\lambda)$.
 
+\chapter{Partie appliquée}
+
+Afin d'illustrer par un exemple notre démonstration. Nous allons implémenter un programme qui simule un tirage aléatoire selon la loi de G(U), puis nous allons analyser les résultats obtenus pour voir si ils sont conforme avec la loi exponentielle. Nous avons rédigé notre programme en python qui possède une fonction aléatoire qui suit une loi uniforme sur [0,1]. Nous avons ensuite modifié les résultats retourné par cette fonction de la même façon que G(U) et rempli un tableau avec ces valeurs. Ensuite nous avons tracé la fonction de répartition d'une loi exponentielle de paramètre $\lambda$. Nous avons ensuite pour pouvoir exploiter nos résultats, utilisé un tableau de compteur qui comptabilise le nombre de valeur inférieur à une certaine constante dans le tableau contenant les valeurs tirées aléatoirement. En incrémentant cette constante on arrive à simuler une fonction de répartition de nos valeurs tirées aléatoirement. On trace ensuite les deux courbes
 
 \end{document}
