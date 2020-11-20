@@ -1,0 +1,4 @@
+\babel@toc {french}{}
+\contentsline {chapter}{Introduction}{2}{chapter*.2}%
+\contentsline {chapter}{\numberline {1}G(U) $\sim $ $\varepsilon (\lambda )$}{3}{chapter.1}%
+\contentsline {chapter}{\numberline {2}G(U) $\sim $ G(1-U) $\sim $ $\varepsilon (\lambda )$}{4}{chapter.2}%
