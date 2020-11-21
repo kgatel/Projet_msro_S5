@@ -162,7 +162,7 @@ $$\mathbb{P}(G(U)<t)=\begin{cases}
 1-e^{-\lambda t} & \text{si }t\geq0
 \end{cases}$$\\
 
-D'où $G(U) \sim \varepsilon(\lambda)$.
+D'où $G(U) \sim \varepsilon(\lambda)$.\vspace{0.4cm}
  
 \section{G(U) $\sim$ G(1-U) $\sim$ $\varepsilon(\lambda)$}
 
@@ -226,7 +226,7 @@ Pour avoir d'autres éléments à étudier, nous avons comparé l'espérance obt
  				\hline
 			    $\mathbb{E}_{th}$ & $\mathbb{E}_{exp}$ \\
     			\hline
-   				A remplir & A remplir \\
+   				$2$ & $2.01158$ \\
    				\hline
    				\end{tabular}
 		\end{flushleft}
@@ -239,13 +239,14 @@ Pour avoir d'autres éléments à étudier, nous avons comparé l'espérance obt
 				\hline
 			    $\mathbb{E}_{th}$ & $\mathbb{E}_{exp}$ \\
     			\hline
-   				A remplir & A remplir \\
+   				$0.66667$ & $0.67476$ \\
    				\hline
    				\end{tabular}
 		\end{flushright}
 	\end{minipage}\vspace{0.5cm}
 
-On calcule aussi numériquement l'écart moyen entre les deux courbes en plus du tracé de la courbe.\\
+Les espérances sont également très proches.
+On calcule aussi numériquement l'écart moyen entre les deux courbes en plus du tracé de la courbe. On obtient ainsi :\\
 
 \begin{minipage}{0.5\textwidth}
 		\begin{flushleft} \large\center
@@ -253,9 +254,9 @@ On calcule aussi numériquement l'écart moyen entre les deux courbes en plus du
 			
 				\begin{tabular}{|l|c|}
  				\hline
-			    $\mathbb{E}_{th}$ & $\mathbb{E}_{exp}$ \\
+			    Ecart \\
     			\hline
-   				A remplir & A remplir \\
+   				0.00963\\
    				\hline
    				\end{tabular}
 		\end{flushleft}
@@ -266,28 +267,53 @@ On calcule aussi numériquement l'écart moyen entre les deux courbes en plus du
 			
 				\begin{tabular}{|l|c|r|}
 				\hline
-			    $Ecart_{th}$ & $Ecart_{exp}$ \\
+			    Ecart \\
     			\hline
-   				A remplir & A remplir \\
+   				0.00557\\
    				\hline
    				\end{tabular}
 		\end{flushright}
 	\end{minipage}\vspace{0.5cm}
 
-Nous retrouvons bien toutes les propriétés d'une loi exponentielle. La loi exponentielle formée par $G(U)$ est donc bien vérifiée expérimentalement.
+Nous retrouvons bien toutes les propriétés d'une loi exponentielle. La loi exponentielle formée par $G(U)$ est donc bien vérifiée expérimentalement.\\
 
 \section{Cohérence de $U$ et $1-U$ pour $G$}
 
+Pour ce faire, nous avons fabriqué de la même manière la fonction de répartition en prenant $1-U$ au lieu de $U$.\\
+
+Nous obtenons :
+
+\begin{figure}[H]
+	\center
+	\includegraphics[width=0.92215\textwidth]{./Images/EcartU}
+	\caption{Fonctions de répartition}
+\end{figure}\vspace{0.2cm}
+
+Nous observons que les deux courbes ont la même allure et sont très proches. De plus nous obtenons cette figure avec une moyenne des écarts entre les deux courbes expérimentales de l'ordre de 1\%
+
+\begin{center}
+\begin{tabular}{|l|c|r|}
+				\hline
+			    Ecart \\
+    			\hline
+   				$0.01038$\\
+   				\hline
+   				\end{tabular}
+\end{center}
+
+Ainsi, nous pouvons donc conclure sur la cohérence de $U$ et $1-U$ pour la fonction $G$.
 
 \chapter*{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
+
+
 
 \chapter*{Annexe}
 \addcontentsline{toc}{chapter}{Annexe}
 
 \hrule
 \begin{lstlisting}[caption=Programme en Python]
-
+	
 \end{lstlisting}
 
 \lstinputlisting[language=Python]{./../Visualisation_loi_exp.py}
