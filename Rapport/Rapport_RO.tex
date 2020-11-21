@@ -22,6 +22,17 @@
 \usepackage{float}
 \usepackage{tabto}
 
+\usepackage{listings}
+\usepackage{cleveref}
+
+\renewcommand{\lstlistingname}{Code}
+%\renewcommand{\figurename}{Fig.}
+
+\lstdefinestyle{chstyle}{%
+backgroundcolor=\color{gray!12},
+basicstyle=\ttfamily\small,
+showstringspaces=false,
+numbers=left}
 
 %\AddThinSpaceBeforeFootnotes
 %\FrenchFootnotes
@@ -90,9 +101,13 @@
 
 La loi exponentielle modélise la durée de vie d'un phénomène sans mémoire ou sans vieillissement. En d'autres termes la probabilité que le phénomène dure au moins $h+t$ heures sachant qu'il a déjà duré $t$ heures sera la même que la probabilité de durer $h$ heures à partir de sa mise en fonction initiale. Elle peut notamment modéliser la vie des circuits électriques, résoudre des problématiques de durée de vie en général.\\
 
-Dans ce projet nous allons nous intéresser à comment simuler et modéliser une loi exponentielle de paramètre $\lambda$. Dans un premier temps nous allons démontrer qu'il est possible d'obtenir une loi exponentielle en partant d'une loi uniforme, ensuite nous allons démontrer que prendre une loi uniforme $U$ ou bien $1-U$ ne change rien pour en obtenir une, enfin nous allons créer une loi exponentielle à expérimentalement à partir d'une loi uniforme à afin d'appliquer directement les parties précédentes.
+Dans ce projet nous allons nous intéresser à comment simuler et modéliser une loi exponentielle de paramètre $\lambda$. Dans un premier temps nous allons démontrer qu'il est possible d'obtenir une loi exponentielle $G(U)$ en partant d'une loi uniforme $U$, ensuite nous allons démontrer que prendre une loi uniforme $U$ ou bien $1-U$ ne change rien pour en obtenir une. Dans un deuxième nous allons vérifier expérimentalement qu'il est possible de générer une loi exponentielle à partir d'une loi uniforme et vérifier que $G(U) \sim G(1-U)$.
 
-\chapter{G(U) $\sim$ $\varepsilon(\lambda)$}
+\chapter{Partie théorique}
+
+Dans cette partie, nous allons démontrer les deux premières questions posées.
+
+\section{G(U) $\sim$ $\varepsilon(\lambda)$}
 
 Soit $U$ une loi uniforme sur [0,1].
 
@@ -149,7 +164,7 @@ $$\mathbb{P}(G(U)<t)=\begin{cases}
 
 D'où $G(U) \sim \varepsilon(\lambda)$.
  
-\chapter{G(U) $\sim$ G(1-U) $\sim$ $\varepsilon(\lambda)$}
+\section{G(U) $\sim$ G(1-U) $\sim$ $\varepsilon(\lambda)$}
 
 On a :
 $$\mathbb{P}(G(1-U)<t)=\mathbb{P}(\frac{-1}{\lambda}\ln(U)<t)=\mathbb{P}(\ln(U)>-\lambda t)$$\\
@@ -177,10 +192,104 @@ Pour conclure si $U\sim\mathbb{U}([0,1])$ on aura $G(1-U) \sim G(U)\sim \varepsi
 
 \chapter{Partie appliquée}
 
-Afin d'illustrer par un exemple notre démonstration. Nous allons implémenter un programme qui simule un tirage aléatoire selon la loi de G(U), puis nous allons analyser les résultats obtenus pour voir si ils sont conforme avec la loi exponentielle. Nous avons rédigé notre programme en python qui possède une fonction aléatoire qui suit une loi uniforme sur [0,1]. Nous avons ensuite modifié les résultats retourné par cette fonction de la même façon que G(U) et rempli un tableau avec ces valeurs. Ensuite nous avons tracé la fonction de répartition d'une loi exponentielle de paramètre $\lambda$. Nous avons ensuite pour pouvoir exploiter nos résultats, utilisé un tableau de compteur qui comptabilise le nombre de valeur inférieur à une certaine constante dans le tableau contenant les valeurs tirées aléatoirement. En incrémentant cette constante on arrive à simuler une fonction de répartition de nos valeurs tirées aléatoirement. On trace ensuite les deux courbes pour pouvoir les comparer. Pour avoir d'autres éléments à étudier on compare également l'espérance théorique et expérimental. On calcule également numériquement l'écart moyen entre les deux courbes en plus du tracé de la courbe.
-\begin{center}
-	\includegraphics[width=1.5\textwidth]{./Images/Programme.png}\\[1.0 cm]
-\end{center}
+Dans cette partie nous allons illustrer ce que nous venons de démontrer en construisant un exemple. Nous avons ainsi fait un programme qui, en partant d'une simple loi uniforme que possèdent les langages traditionnels, génère une loi exponentielle\footnote{Le code est disponible en annexe}. Nous allons ensuites analyser ces résultats afin de discuter de la méthode et de la conformité.\\
 
+\section{Construction et analyse de l'exemple}
+
+Dans un premier temps nous avons tiré puis stocké un grand nombre de valeurs (ici $N$=2000) tirées aléatoirement de manière uniforme entre [0,1]. La fonction $G$ est appliquée au tableau puis ce dernier est trié de manière à classer par ordre croissant les valeurs. Nous avons ensuite utilisé un second tableau compteur permettant de comptabiliser  le nombre de valeur inférieur à seconde valeur constante appartenant au tableau créé précédemment. Enfin, en incrémentant cette constante on peut ainsi construire une fonction de répartition de nos valeurs tirées initialement de manière aléatoire. On trace ensuite les deux courbes pour pouvoir les comparer. Pour pouvoir comparer notre résultat obtenu à la courbe théorique afin de valider notre simulation, nous avons tracé la fonction de répartition d'une loi exponentielle de paramètre $\lambda$ nous servant ainsi de modèle.\\
+
+On obtient ce résultat :
+
+\begin{figure}[H]
+    \begin{minipage}[c]{.50\linewidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{./Images/Lambda_0.5}\\
+        \caption*{Fonction de répartition avec $\lambda=0.5$}
+    \end{minipage}
+    \hfill%
+    \begin{minipage}[c]{.50\linewidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{./Images/Lambda_1.5}\\
+        \caption*{Fonction de répartition avec $\lambda=1.5$}
+    \end{minipage}
+\end{figure}\vspace{0.3cm}
+
+On obtient des courbes très proches voire superposées ce qui est bon signe.\\
+
+Pour avoir d'autres éléments à étudier, nous avons comparé l'espérance obtenue avec celle théorique. \\
+
+\begin{minipage}{0.5\textwidth}
+		\begin{flushleft} \large\center
+			Pour $\lambda$=0.5 \vspace{0.4cm}
+			
+				\begin{tabular}{|l|c|}
+ 				\hline
+			    $\mathbb{E}_{th}$ & $\mathbb{E}_{exp}$ \\
+    			\hline
+   				A remplir & A remplir \\
+   				\hline
+   				\end{tabular}
+		\end{flushleft}
+	\end{minipage}
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushright} \large\center
+			Pour $\lambda$=1.5 \vspace{0.4cm}
+			
+				\begin{tabular}{|l|c|r|}
+				\hline
+			    $\mathbb{E}_{th}$ & $\mathbb{E}_{exp}$ \\
+    			\hline
+   				A remplir & A remplir \\
+   				\hline
+   				\end{tabular}
+		\end{flushright}
+	\end{minipage}\vspace{0.5cm}
+
+On calcule aussi numériquement l'écart moyen entre les deux courbes en plus du tracé de la courbe.\\
+
+\begin{minipage}{0.5\textwidth}
+		\begin{flushleft} \large\center
+			Pour $\lambda$=0.5 \vspace{0.4cm}
+			
+				\begin{tabular}{|l|c|}
+ 				\hline
+			    $\mathbb{E}_{th}$ & $\mathbb{E}_{exp}$ \\
+    			\hline
+   				A remplir & A remplir \\
+   				\hline
+   				\end{tabular}
+		\end{flushleft}
+	\end{minipage}
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushright} \large\center
+			Pour $\lambda$=1.5 \vspace{0.4cm}
+			
+				\begin{tabular}{|l|c|r|}
+				\hline
+			    $Ecart_{th}$ & $Ecart_{exp}$ \\
+    			\hline
+   				A remplir & A remplir \\
+   				\hline
+   				\end{tabular}
+		\end{flushright}
+	\end{minipage}\vspace{0.5cm}
+
+Nous retrouvons bien toutes les propriétés d'une loi exponentielle. La loi exponentielle formée par $G(U)$ est donc bien vérifiée expérimentalement.
+
+\section{Cohérence de $U$ et $1-U$ pour $G$}
+
+
+\chapter*{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
+
+\chapter*{Annexe}
+\addcontentsline{toc}{chapter}{Annexe}
+
+\hrule
+\begin{lstlisting}[caption=Programme en Python]
+
+\end{lstlisting}
+
+\lstinputlisting[language=Python]{./../Visualisation_loi_exp.py}
 
 \end{document}
