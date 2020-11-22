@@ -306,6 +306,26 @@ Ainsi, nous pouvons donc conclure sur la cohérence de $U$ et $1-U$ pour la fonc
 \chapter*{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
 
+Pour conclure ce projet rappelons le problème initial. Nous avons donc étudié la loi exponentielle de paramètre lambda d'un point de vue mathématique et informatique. Pour ce faire nous avons simulé une loi exponentielle à partir d'une loi uniforme. Ce projet a donc été réalisé en deux partie : une mathématique et une plus informatique.\\
+
+En première partie on s'est intéresse à l'aspect purement mathématique. Nous disposions d'une certaine fonction G tel que :
+$$\begin{array}{ccccc}
+	G & : & [0,1] & \longrightarrow & \mathbb{R}^{+} \\
+	& & u & \longmapsto & \frac{-1}{\lambda}\ln(1-u) \\
+\end{array}$$ 
+Et d'une variable aléatoire U suivant une loi uniforme sur [0,1]. Nous avons donc démontré mathématiquement que la variable G(U) suivait une loi exponentielle de paramètre $\lambda$. Nous avons ensuite démontrer que si l'on remplaçait U par 1-U dans G on trouvait le même résultat.\\
+
+Dans un second temps nous avons essayé d'implémenter un programme informatique permettant d'illustrer cette démonstration à travers un exemple. Nous savions que la plupart des langages possèdent une fonction aléatoire qui suit une loi uniforme sur [0,1]. Notre programme consiste à faire de  nombreux tirages aléatoires indépendant en nous servant de cette fonction et de la fonction G. Les valeurs tirées sont stockés dans un tableau. Pour ensuite vérifier que ces valeurs suivaient bien une loi exponentielle de paramètre $\lambda$, nous avons eu l'idée de tracer la fonction de répartition de ces valeurs et de la comparer avec la fonction de répartition théorique. Nous ne nous sommes pas contenté de ça et nous avons aussi comparé l'espérance de nos mesures et l'espérance théorique. Nous avons ensuite réitéré l'expérience avec la variable 1-U et constaté la même chose.\\
+
+Nous avons eu des difficultés pour obtenir une courbe lisse avec un nombre fini de valeurs mais nous avons finalement trouvé un bon équilibre permettant d'obtenir une courbe de bonne qualité très proche de la courbe théorique sans surcharger l'utilisation de la mémoire et le nombre d'opérations qui rendait le programme très long à s'exécuter.\\
+
+Pour finir ce projet nous aura permis de nous familiariser avec un langage supplémentaire qu'est le python, ainsi que des logiciels comme numpy très utile pour tracer des graphiques.\\
+
+Nous avons trouvé très intéressant de pouvoir lier démonstration mathématique et application informatique pour illustrer quelque chose de théorique qui peut paraître très abstrait avec un exemple plus concret.\\
+
+C'est à partir de deux points de vues différent que nous avons pu obtenir un programme performant et précis, qui donne des résultats en accord avec ceux attendues pour toutes valeurs de $\lambda$.\\
+Il existe probablement d'autres façons à partir d'une loi uniforme sur [0,1] facilement utilisable sur ordinateur, d'obtenir des lois de probabilités diverses et variées. On pourrait donc utiliser le même procédé pour modéliser des lois de probabilités sur ordinateur ce qui pourrait s'avérer utile pour faire des projections de l'avenir sur l'évolution d'une pandémie par exemple. 
+
 
 
 \chapter*{Annexe}
