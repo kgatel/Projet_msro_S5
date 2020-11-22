@@ -57,7 +57,7 @@ numbers=left}
 	\vspace{5mm}
 	\includegraphics[width=0.4\textwidth]{./Images/insa}\\[1.0 cm]
 
-	\textsc{\Large Projet Info GM3 - Vague 1 - Sujet 2}\\[0.6cm]
+	\textsc{\Large Projet RO GM3 - Vague 2 - Sujet 1}\\[0.6cm]
 
 	% Title
 	\HRule \\[0.5cm]
@@ -99,9 +99,9 @@ numbers=left}
 %\label{chapter:Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 
-La loi exponentielle modélise la durée de vie d'un phénomène sans mémoire ou sans vieillissement. En d'autres termes la probabilité que le phénomène dure au moins $h+t$ heures sachant qu'il a déjà duré $t$ heures sera la même que la probabilité de durer $h$ heures à partir de sa mise en fonction initiale. Elle peut notamment modéliser la vie des circuits électriques, résoudre des problématiques de durée de vie en général.\\
+La loi exponentielle modélise la durée de vie d'un phénomène sans mémoire ou sans vieillissement. En d'autres termes, la probabilité que le phénomène dure au moins $h+t$ heures sachant qu'il a déjà duré $t$ heures sera la même que la probabilité de durer $h$ heures à partir de sa mise en fonction initiale. Elle peut notamment modéliser la vie des circuits électriques, résoudre des problématiques de durée de vie en général.\\
 
-Dans ce projet nous allons nous intéresser à comment simuler et modéliser une loi exponentielle de paramètre $\lambda$. Dans un premier temps nous allons démontrer qu'il est possible d'obtenir une loi exponentielle $G(U)$ en partant d'une loi uniforme $U$, ensuite nous allons démontrer que prendre une loi uniforme $U$ ou bien $1-U$ ne change rien pour en obtenir une. Dans un deuxième nous allons vérifier expérimentalement qu'il est possible de générer une loi exponentielle à partir d'une loi uniforme et vérifier que $G(U) \sim G(1-U)$.
+Dans ce projet, nous allons nous intéresser à comment simuler et modéliser une loi exponentielle de paramètre $\lambda$. Dans un premier temps, nous allons démontrer qu'il est possible d'obtenir une loi exponentielle $G(U)$ en partant d'une loi uniforme $U$, ensuite, nous allons démontrer que prendre une loi uniforme $U$ ou bien $1-U$ ne change rien pour en obtenir une. Dans un deuxième temps, nous allons vérifier expérimentalement qu'il est possible de générer une loi exponentielle à partir d'une loi uniforme et vérifier que $G(U) \sim G(1-U)$.
 
 \chapter{Partie théorique}
 
@@ -192,11 +192,11 @@ Pour conclure si $U\sim\mathbb{U}([0,1])$ on aura $G(1-U) \sim G(U)\sim \varepsi
 
 \chapter{Partie appliquée}
 
-Dans cette partie nous allons illustrer ce que nous venons de démontrer en construisant un exemple. Nous avons ainsi fait un programme qui, en partant d'une simple loi uniforme que possèdent les langages traditionnels, génère une loi exponentielle\footnote{Le code est disponible en annexe}. Nous allons ensuites analyser ces résultats afin de discuter de la méthode et de la conformité.\\
+Dans cette partie, nous allons illustrer ce que nous venons de démontrer en construisant un exemple. Nous avons ainsi fait un programme qui, en partant d'une simple loi uniforme que possèdent les langages traditionnels, génère une loi exponentielle\footnote{Le code est disponible en annexe}. Nous allons ensuite analyser ces résultats afin de discuter de la méthode et de la conformité.\\
 
 \section{Construction et analyse de l'exemple}
 
-Dans un premier temps nous avons tiré puis stocké un grand nombre de valeurs (ici $N$=2000) tirées aléatoirement de manière uniforme entre [0,1]. La fonction $G$ est appliquée au tableau puis ce dernier est trié de manière à classer par ordre croissant les valeurs. Nous avons ensuite utilisé un second tableau compteur permettant de comptabiliser  le nombre de valeur inférieur à seconde valeur constante appartenant au tableau créé précédemment. Enfin, en incrémentant cette constante on peut ainsi construire une fonction de répartition de nos valeurs tirées initialement de manière aléatoire. On trace ensuite les deux courbes pour pouvoir les comparer. Pour pouvoir comparer notre résultat obtenu à la courbe théorique afin de valider notre simulation, nous avons tracé la fonction de répartition d'une loi exponentielle de paramètre $\lambda$ nous servant ainsi de modèle.\\
+Dans un premier temps, nous avons tiré puis stocké un grand nombre de valeurs (ici $N$=2000) tirées aléatoirement de manière uniforme entre [0,1]. La fonction $G$ est appliquée au tableau puis ce dernier est trié de manière à classer par ordre croissant les valeurs. Nous avons ensuite utilisé un second tableau compteur permettant de comptabiliser  le nombre de valeur inférieur à une seconde valeur constante appartenant au tableau créé précédemment. Enfin, en incrémentant cette constante on peut ainsi construire une fonction de répartition de nos valeurs tirées initialement de manière aléatoire. On trace ensuite les deux courbes pour pouvoir les comparer. Pour pouvoir comparer notre résultat obtenu à la courbe théorique afin de valider notre simulation, nous avons tracé la fonction de répartition d'une loi exponentielle de paramètre $\lambda$ nous servant ainsi de modèle.\\
 
 On obtient ce résultat :
 
@@ -214,7 +214,7 @@ On obtient ce résultat :
     \end{minipage}
 \end{figure}\vspace{0.3cm}
 
-On obtient des courbes très proches voire superposées ce qui est bon signe.\\
+On obtient des courbes très proches voire superposées.\\
 
 Pour avoir d'autres éléments à étudier, nous avons comparé l'espérance obtenue avec celle théorique. \\
 
@@ -279,7 +279,7 @@ Nous retrouvons bien toutes les propriétés d'une loi exponentielle. La loi exp
 
 \section{Cohérence de $U$ et $1-U$ pour $G$}
 
-Pour ce faire, nous avons fabriqué de la même manière la fonction de répartition en prenant $1-U$ au lieu de $U$.\\
+Pour se faire, nous avons fabriqué de la même manière la fonction de répartition en prenant $1-U$ au lieu de $U$.\\
 
 Nous obtenons :
 
@@ -289,7 +289,7 @@ Nous obtenons :
 	\caption{Fonctions de répartition}
 \end{figure}\vspace{0.2cm}
 
-Nous observons que les deux courbes ont la même allure et sont très proches. De plus nous obtenons cette figure avec une moyenne des écarts entre les deux courbes expérimentales de l'ordre de 1\%
+Nous observons que les deux courbes ont la même allure et sont très proches. De plus, nous obtenons cette figure avec une moyenne des écarts entre les deux courbes expérimentales de l'ordre de 1\%.
 
 \begin{center}
 \begin{tabular}{|l|c|r|}
@@ -306,26 +306,26 @@ Ainsi, nous pouvons donc conclure sur la cohérence de $U$ et $1-U$ pour la fonc
 \chapter*{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
 
-Pour conclure ce projet rappelons le problème initial. Nous avons  étudié la loi exponentielle de paramètre lambda d'un point de vue mathématique puis informatique. Pour ce faire nous avons simulé une loi exponentielle à partir d'une loi uniforme. Ce projet a donc été réalisé en deux partie : une mathématique et une plus informatique.\\
+Pour conclure ce projet, rappelons le problème initial. Nous avons étudié la loi exponentielle de paramètre $\lambda$ d'un point de vue mathématique puis informatique. Pour se faire, nous avons simulé une loi exponentielle à partir d'une loi uniforme. Ce projet a donc été réalisé en deux parties : une mathématique et une plus informatique.\\
 
-En première partie nous nous sommes intéressés à l'aspect purement mathématique. Nous disposions d'une certaine fonction G telle que :
+En première partie, nous nous sommes intéressés à l'aspect purement mathématique. Nous disposions d'une certaine fonction $G$ telle que :
 $$\begin{array}{ccccc}
 	G & : & [0,1] & \longrightarrow & \mathbb{R}^{+} \\
 	& & u & \longmapsto & \frac{-1}{\lambda}\ln(1-u) \\
 \end{array}$$ 
-Et d'une variable aléatoire U suivant une loi uniforme sur [0,1]. Nous avons donc démontré mathématiquement que la variable G(U) suivait une loi exponentielle de paramètre $\lambda$. Nous avons ensuite démontré que si l'on remplaçait U par 1-U dans G, on trouvait le même résultat.\\
+Et d'une variable aléatoire $U$ suivant une loi uniforme sur [0,1]. Nous avons donc démontré mathématiquement que la variable $G(U)$ suivait une loi exponentielle de paramètre $\lambda$. Nous avons ensuite démontré que si l'on remplaçait $U$ par $1-U$ dans $G$, on trouvait le même résultat.\\
 
-Dans un second temps nous avons essayé d'implémenter un programme informatique permettant d'illustrer cette démonstration à travers un exemple. Nous savions que la plupart des langages possèdent une fonction aléatoire qui suit une loi uniforme sur [0,1]. Notre programme consiste à faire de nombreux tirages aléatoires indépendant en nous servant de cette fonction et de la fonction G. Pour ensuite vérifier que ces valeurs suivaient bien une loi exponentielle de paramètre $\lambda$, nous avons eu l'idée de tracer la fonction de répartition de ces valeurs et de la comparer avec la fonction de répartition théorique. De plus nous avons comparé l'espérance de nos mesures avec l'espérance théorique. Nous avons réitéré l'expérience avec la variable 1-U et constaté la même chose.\\
+Dans un second temps, nous avons essayé d'implémenter un programme informatique permettant d'illustrer cette démonstration à travers un exemple. Nous savions que la plupart des langages possèdent une fonction aléatoire qui suit une loi uniforme sur [0,1]. Notre programme consiste à faire de nombreux tirages aléatoires indépendants en nous servant de cette fonction et de la fonction $G$. Pour ensuite vérifier que ces valeurs suivaient bien une loi exponentielle de paramètre $\lambda$, nous avons eu l'idée de tracer la fonction de répartition de ces valeurs et de la comparer avec la fonction de répartition théorique. De plus, nous avons comparé l'espérance de nos mesures avec l'espérance théorique. Nous avons réitéré l'expérience avec la variable $1-U$ et constaté la même chose.\\
 
 Nous avons eu des difficultés pour obtenir une courbe lisse avec un nombre fini de valeurs mais nous avons finalement trouvé un bon équilibre permettant d'obtenir une courbe de bonne qualité très proche de la courbe théorique sans surcharger l'utilisation de la mémoire et le nombre d'opérations qui rendait le programme très long à s'exécuter.\\
 
-Pour finir ce projet nous aura permis de nous familiariser avec un langage supplémentaire qu'est le python, ainsi que des bibliothèques comme $matplotlib.pyplot$ très utile pour tracer des graphiques.\\
+Pour finir, ce projet nous aura permis de nous familiariser avec un langage supplémentaire qu'est le python, ainsi que des bibliothèques comme $matplotlib.pyplot$ très utile pour tracer des graphiques.\\
 
-Nous avons trouvé très intéressant de pouvoir lier démonstration mathématique avec l'application informatique pour illustrer quelque chose de théorique qui peut paraître très abstrait avec un exemple plus concret.\\
+Nous avons trouvé très intéressant de pouvoir lier démonstrations mathématiques avec applications informatiques pour illustrer quelque chose de théorique qui peut paraître très abstrait avec un exemple plus concret.\\
 
-C'est à partir de deux points de vues différent que nous avons pu obtenir un programme performant et précis, qui donne des résultats en accord avec ceux attendus pour toutes valeurs de $\lambda$.\\
+C'est à partir de deux points de vues différents que nous avons pu obtenir un programme performant et précis qui donne des résultats en accord avec ceux attendus pour toute valeur de $\lambda$.\\
 
-Il existe probablement d'autres façons à partir d'une loi uniforme sur [0,1] facilement utilisable sur ordinateur, d'obtenir des lois de probabilités diverses et variées. On pourrait donc utiliser le même procédé pour modéliser des lois de probabilités sur ordinateur ce qui pourrait s'avérer utile pour faire des projections de l'avenir sur l'évolution d'une pandémie par exemple. 
+Il existe probablement d'autres façons d'obtenir des lois de probabilités diverses et variées à partir d'une loi uniforme sur [0,1]. On pourrait donc utiliser le même procédé pour modéliser des lois de probabilités sur ordinateur ce qui pourrait s'avérer utile pour faire des projections de l'avenir sur l'évolution d'une pandémie par exemple. 
 
 \chapter*{Annexe}
 \addcontentsline{toc}{chapter}{Annexe}
