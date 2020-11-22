@@ -19,7 +19,7 @@ for i in range(N):
 tabtrie=sorted(tab)    #tableau trie
 tabutrie=sorted(tabu)
 
-t1 = np.arange(0.0,5.0,5.0/N)   #tableau N valeurs entre 0 5 par pas 5/5
+t1 = np.arange(0.0,5.0,5.0/N)   #tableau N valeurs entre 0 5 par pas 5/N
 
 tabcompteur = np.zeros(N)
 tabucompteur = np.zeros(N)
